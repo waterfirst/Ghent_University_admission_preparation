@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>화학 LaTeX 테스트</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px;
+            line-height: 1.8;
+        }
+        .test-box {
+            background: #f0f9ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #0284c7;
+            border-radius: 5px;
+        }
+        h2 { color: #0284c7; }
+        .status { color: #16a34a; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🧪 화학 LaTeX 렌더링 테스트</h1>
+    
+    <div class="test-box">
+        <h2>1. 기본 분수</h2>
+        <p>몰농도: $M = \frac{\text{mol}}{\text{L}}$</p>
+        <p>몰 계산: $n = \frac{\text{질량(g)}}{\text{몰질량(g/mol)}}$</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>2. 복잡한 분수</h2>
+        <p>NH₄ClO₄: $\frac{11.75 \times 10^6 \text{ g}}{117.5 \text{ g/mol}} = 1 \times 10^5$ mol</p>
+        <p>Al: $\frac{2.7 \times 10^6 \text{ g}}{27 \text{ g/mol}} = 1 \times 10^5$ mol</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>3. 화학 반응식</h2>
+        <p>산화: $2\text{I}^- \rightarrow \text{I}_2 + 2e^-$</p>
+        <p>환원: $\text{MnO}_4^- + 8\text{H}^+ + 5e^- \rightarrow \text{Mn}^{2+} + 4\text{H}_2\text{O}$</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>4. pH 공식</h2>
+        <p>pH = $-\log[\text{H}^+]$</p>
+        <p>pOH = $-\log[\text{OH}^-]$</p>
+        <p>$[\text{H}^+] = 10^{-\text{pH}}$</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>5. 희석 공식</h2>
+        <p>$C_1V_1 = C_2V_2$</p>
+        <p>9.8 × 100 = 4.9 × $V_2$</p>
+        <p>$V_2 = 200$ mL</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>6. 온도 변환</h2>
+        <p>섭씨 → 화씨: $°F = \frac{9}{5} °C + 32$</p>
+        <p>방정식: $x = \frac{9}{5}x + 32$</p>
+        <p>정리: $-\frac{4}{5}x = 32$</p>
+        <p>해: $x = -40$</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>7. 기체 법칙</h2>
+        <p>pV = nRT</p>
+        <p>압력: $p = \frac{nRT}{V}$</p>
+        <p>부피: V = $3 \times 10^4$ mol × 22.4 L/mol</p>
+    </div>
+    
+    <p class="status">✅ 모든 수식이 정상적으로 렌더링되면 성공!</p>
+    <p><a href="chem.html">→ 화학 강의록으로 이동</a></p>
+</body>
+</html>
