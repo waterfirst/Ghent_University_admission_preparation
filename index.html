@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>겐트대학교 입학시험 수학 강의록</title>
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -165,13 +183,18 @@
 
         .formula {
             background: #f8f9fa;
-            padding: 15px 20px;
+            padding: 20px;
             margin: 15px 0;
             border-radius: 5px;
             border: 1px solid #dee2e6;
-            font-family: 'Courier New', monospace;
             text-align: center;
             overflow-x: auto;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        
+        .formula .MathJax {
+            font-size: 1.2em !important;
         }
 
         .example {
@@ -365,7 +388,7 @@
                 <h3>1.2 절댓값 함수</h3>
                 
                 <div class="formula">
-                    |x| = { x (if x ≥ 0), -x (if x < 0) }
+                    $|x| = \begin{cases} x & \text{if } x \geq 0 \\ -x & \text{if } x < 0 \end{cases}$
                 </div>
 
                 <h4>🔍 성질</h4>
@@ -414,10 +437,10 @@
 
                 <h4>🔧 도함수</h4>
                 <ul>
-                    <li>d/dx(e^x) = e^x</li>
-                    <li>d/dx(ln x) = 1/x</li>
-                    <li>d/dx(a^x) = a^x ln a</li>
-                    <li>d/dx(log_a x) = 1/(x ln a)</li>
+                    <li>$\frac{d}{dx}(e^x) = e^x$</li>
+                    <li>$\frac{d}{dx}(\ln x) = \frac{1}{x}$</li>
+                    <li>$\frac{d}{dx}(a^x) = a^x \ln a$</li>
+                    <li>$\frac{d}{dx}(\log_a x) = \frac{1}{x \ln a}$</li>
                 </ul>
 
                 <h3>1.5 극한과 연속성</h3>
@@ -461,19 +484,19 @@
 
                 <h4>🔑 정의</h4>
                 <div class="formula">
-                    f'(x) = lim(h→0) [f(x+h) - f(x)]/h
+                    $f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$
                 </div>
 
                 <h4>🔧 기본 도함수</h4>
                 <ul>
-                    <li>(x^n)' = nx^(n-1)</li>
-                    <li>(sin x)' = cos x, (cos x)' = -sin x</li>
-                    <li>(e^x)' = e^x, (ln x)' = 1/x</li>
+                    <li>$(x^n)' = nx^{n-1}$</li>
+                    <li>$(\sin x)' = \cos x$, $(\cos x)' = -\sin x$</li>
+                    <li>$(e^x)' = e^x$, $(\ln x)' = \frac{1}{x}$</li>
                 </ul>
 
                 <h4>🔗 연쇄법칙 (Chain Rule)</h4>
                 <div class="formula">
-                    d/dx f(g(x)) = f'(g(x)) · g'(x)
+                    $\frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x)$
                 </div>
 
                 <div class="example">
@@ -493,7 +516,7 @@
 
                 <h4>🔹 접선 방정식</h4>
                 <div class="formula">
-                    y = f(a) + f'(a)(x - a)
+                    $y = f(a) + f'(a)(x - a)$
                 </div>
 
                 <h4>🔹 극값</h4>
@@ -510,26 +533,26 @@
                 <h4>🔹 로피탈 법칙 (L'Hôpital's Rule)</h4>
                 <p>0/0 또는 ∞/∞ 꼴일 때:</p>
                 <div class="formula">
-                    lim(x→a) f(x)/g(x) = lim(x→a) f'(x)/g'(x)
+                    $\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}$
                 </div>
 
                 <h3>1.9 부정적분과 적분법</h3>
 
                 <h4>🔑 부정적분 정의</h4>
                 <div class="formula">
-                    F'(x) = f(x) ⇒ ∫f(x)dx = F(x) + C
+                    $F'(x) = f(x) \quad \Rightarrow \quad \int f(x)\,dx = F(x) + C$
                 </div>
 
                 <h4>🔧 기본 적분</h4>
                 <ul>
-                    <li>∫x^n dx = x^(n+1)/(n+1) + C (n ≠ -1)</li>
-                    <li>∫e^x dx = e^x + C</li>
-                    <li>∫(1/x) dx = ln|x| + C</li>
+                    <li>$\int x^n dx = \frac{x^{n+1}}{n+1} + C$ (단, $n \neq -1$)</li>
+                    <li>$\int e^x dx = e^x + C$</li>
+                    <li>$\int \frac{1}{x} dx = \ln|x| + C$</li>
                 </ul>
 
                 <h4>🔄 치환적분 (Substitution)</h4>
                 <div class="formula">
-                    ∫f(g(x))g'(x)dx = ∫f(u)du (u = g(x))
+                    $\int f(g(x))g'(x)\,dx = \int f(u)\,du \quad \text{(단, } u = g(x)\text{)}$
                 </div>
 
                 <div class="example">
@@ -541,7 +564,7 @@
 
                 <h4>🧩 부분적분 (Integration by Parts)</h4>
                 <div class="formula">
-                    ∫u dv = uv - ∫v du
+                    $\int u\,dv = uv - \int v\,du$
                 </div>
 
                 <div class="checklist">
@@ -586,12 +609,12 @@
 
                 <h4>🔑 정의</h4>
                 <div class="formula">
-                    (a + b)^n = Σ(k=0 to n) C(n,k) a^(n-k) b^k
+                    $(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$
                 </div>
 
                 <ul>
-                    <li>C(n,k) = n! / [k!(n-k)!]: 이항계수</li>
-                    <li>특정 항: (k+1)번째 항 = C(n,k) a^(n-k) b^k</li>
+                    <li>$\binom{n}{k} = \frac{n!}{k!(n-k)!}$: 이항계수</li>
+                    <li>특정 항: $(k+1)$번째 항 = $\binom{n}{k} a^{n-k} b^k$</li>
                 </ul>
 
                 <h4>📌 자주 묻는 질문 유형</h4>
@@ -699,7 +722,7 @@
 
                 <h4>🔑 기본 환산</h4>
                 <div class="formula">
-                    180° = π rad ⇒ 1° = π/180 rad, 1 rad = 180°/π
+                    $180° = \pi \text{ rad} \quad \Rightarrow \quad 1° = \frac{\pi}{180} \text{ rad}, \quad 1 \text{ rad} = \frac{180°}{\pi}$
                 </div>
 
                 <div class="example">
@@ -751,26 +774,26 @@
 
                 <h4>🔸 기본 항등식</h4>
                 <div class="formula">
-                    sin²x + cos²x = 1
+                    $\sin^2 x + \cos^2 x = 1$
                 </div>
                 <p>여기서 파생:</p>
                 <ul>
-                    <li>1 + tan²x = sec²x</li>
-                    <li>1 + cot²x = csc²x</li>
+                    <li>$1 + \tan^2 x = \sec^2 x$</li>
+                    <li>$1 + \cot^2 x = \csc^2 x$</li>
                 </ul>
 
                 <h4>🔸 덧셈/뺄셈 공식</h4>
                 <div class="formula">
-                    sin(A ± B) = sin A cos B ± cos A sin B<br>
-                    cos(A ± B) = cos A cos B ∓ sin A sin B<br>
-                    tan(A ± B) = (tan A ± tan B) / (1 ∓ tan A tan B)
+                    $\sin(A \pm B) = \sin A \cos B \pm \cos A \sin B$<br>
+                    $\cos(A \pm B) = \cos A \cos B \mp \sin A \sin B$<br>
+                    $\tan(A \pm B) = \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}$
                 </div>
 
                 <h4>🔸 2배각 공식</h4>
                 <div class="formula">
-                    sin 2x = 2 sin x cos x<br>
-                    cos 2x = cos²x - sin²x = 2cos²x - 1 = 1 - 2sin²x<br>
-                    tan 2x = 2 tan x / (1 - tan²x)
+                    $\sin 2x = 2 \sin x \cos x$<br>
+                    $\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x$<br>
+                    $\tan 2x = \frac{2 \tan x}{1 - \tan^2 x}$
                 </div>
 
                 <h4>🔸 반각 공식</h4>
@@ -853,17 +876,17 @@
                 <h4>🔹 두 점 사이의 거리</h4>
                 <p>점 A(x₁, y₁), B(x₂, y₂) 사이의 거리:</p>
                 <div class="formula">
-                    d = √[(x₂ - x₁)² + (y₂ - y₁)²]
+                    $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
                 </div>
 
                 <h4>🔹 중점 좌표</h4>
                 <div class="formula">
-                    M = ((x₁ + x₂)/2, (y₁ + y₂)/2)
+                    $M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right)$
                 </div>
 
                 <h4>🔹 기울기 (Slope)</h4>
                 <div class="formula">
-                    m = (y₂ - y₁)/(x₂ - x₁) (x₁ ≠ x₂)
+                    $m = \frac{y_2 - y_1}{x_2 - x_1} \quad (x_1 \neq x_2)$
                 </div>
                 <ul>
                     <li>수직선 → 기울기 정의되지 않음</li>
@@ -911,7 +934,7 @@
 
                 <h4>🔸 표준형 (가장 중요!)</h4>
                 <div class="formula">
-                    (x - h)² + (y - k)² = r²
+                    $(x - h)^2 + (y - k)^2 = r^2$
                 </div>
                 <ul>
                     <li>중심: (h, k)</li>
@@ -920,12 +943,12 @@
 
                 <h4>🔸 일반형 → 표준형으로 변환 (완전제곱!)</h4>
                 <div class="formula">
-                    x² + y² + Dx + Ey + F = 0
+                    $x^2 + y^2 + Dx + Ey + F = 0$
                 </div>
                 <p>→ x, y 항별로 완전제곱:</p>
                 <div class="formula">
-                    x² + Dx = (x + D/2)² - (D/2)²<br>
-                    y² + Ey = (y + E/2)² - (E/2)²
+                    $x^2 + Dx = \left(x + \frac{D}{2}\right)^2 - \left(\frac{D}{2}\right)^2$<br>
+                    $y^2 + Ey = \left(y + \frac{E}{2}\right)^2 - \left(\frac{E}{2}\right)^2$
                 </div>
 
                 <div class="example">
@@ -954,7 +977,7 @@
                     <li>거리 공식: 점 (x₀, y₀)에서 직선 Ax + By + C = 0까지 거리</li>
                 </ul>
                 <div class="formula">
-                    d = |Ax₀ + By₀ + C| / √(A² + B²)
+                    $d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}$
                 </div>
 
                 <h4>유형 2: 두 원의 관계</h4>
