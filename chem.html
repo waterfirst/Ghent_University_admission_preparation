@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>겐트대학교 입학시험 화학 강의록</title>
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif KR', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 5px solid #22c55e;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        nav {
+            background: #0c4a6e;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background: #22c55e;
+            color: #0c4a6e;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #e0f2fe;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #0284c7;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #22c55e;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: "🧪";
+            font-size: 1.2em;
+        }
+
+        h3 {
+            color: #0369a1;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #22c55e;
+        }
+
+        h4 {
+            color: #0c4a6e;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: #f0f9ff;
+            border-left: 5px solid #0284c7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box::before {
+            content: "💡 학습 팁: ";
+            font-weight: bold;
+            color: #92400e;
+        }
+
+        .important-box {
+            background: #dcfce7;
+            border-left: 5px solid #22c55e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important-box::before {
+            content: "⚡ 핵심: ";
+            font-weight: bold;
+            color: #166534;
+        }
+
+        .formula {
+            background: #f0f9ff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #bae6fd;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+
+        .example {
+            background: #fef3c7;
+            border-left: 5px solid #0369a1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example::before {
+            content: "📝 예제: ";
+            font-weight: bold;
+            color: #0369a1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        table th {
+            background: #0284c7;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #bae6fd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f0f9ff;
+        }
+
+        table tr:hover {
+            background: #e0f2fe;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .checklist {
+            background: #dcfce7;
+            border-left: 5px solid #16a34a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .checklist h4 {
+            color: #166534;
+            margin-bottom: 15px;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li::before {
+            content: "✅ ";
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #0c4a6e;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .back-to-math {
+            display: inline-block;
+            background: #1e3c72;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .back-to-math:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 겐트대학교 입학시험 화학 강의록</h1>
+            <p>GUGC Online Aptitude Test – Chemistry Section</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#intro">소개</a></li>
+                <li><a href="#unit1">1. 원자구조</a></li>
+                <li><a href="#unit2">2. 화학결합</a></li>
+                <li><a href="#unit3">3. 산-염기</a></li>
+                <li><a href="#unit4">4. 산화환원</a></li>
+                <li><a href="#unit5">5. 양적관계</a></li>
+                <li><a href="#unit6">6. 반응속도</a></li>
+                <li><a href="gugc_math_guide.html" style="background: #1e3c72;">📘 수학</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- 소개 섹션 -->
+            <section id="intro">
+                <h2>강의록 소개</h2>
+                
+                <div class="highlight-box">
+                    <p>이 강의록은 겐트대학교 글로벌 캠퍼스(GUGC) 온라인 입학 시험 <strong>화학 파트</strong>를 준비하기 위한 핵심 강의록입니다. 모의고사 10문제(11-20번)를 기반으로 <strong>6개 단원</strong>으로 구성하였으며, 각 단원은 개념→공식→예제 순서로 전개됩니다.</p>
+                </div>
+
+                <h3>출제 영역 개요</h3>
+                <ul>
+                    <li><strong>1단원: 원자 구조와 주기율표</strong> - 전자배치, 중성자 계산</li>
+                    <li><strong>2단원: 화학 결합과 분자 구조</strong> - 혼성화, Lewis 구조</li>
+                    <li><strong>3단원: 산-염기 반응과 pH</strong> - 중화반응, 희석 계산</li>
+                    <li><strong>4단원: 산화-환원 반응</strong> - 전자 이동, 반쪽 반응식</li>
+                    <li><strong>5단원: 양적 관계와 기체 법칙</strong> - 몰 계산, STP 부피</li>
+                    <li><strong>6단원: 반응 속도와 화학 평형</strong> - 촉매, 활성화 에너지</li>
+                </ul>
+
+                <div class="tip-box">
+                    화학은 <strong>공식 암기</strong>보다 <strong>원리 이해</strong>가 중요합니다. 각 단원의 핵심 개념을 먼저 이해한 후 예제를 풀어보세요!
+                </div>
+            </section>
+
+            <!-- 1단원: 원자 구조 -->
+            <section id="unit1">
+                <h2>1단원: 원자 구조와 주기율표</h2>
+                
+                <div class="important-box">
+                    출제 포인트: 원자 번호와 질량수로 중성자 계산, 전자 배치 순서, 주기율표의 경향성
+                </div>
+
+                <h3>1.1 학습 목표</h3>
+                <ul>
+                    <li>원자의 기본 구성 요소 설명</li>
+                    <li>원자 번호, 질량수, 중성자 수 계산</li>
+                    <li>전자 배치와 전자껍질 이해</li>
+                    <li>주기율표에서 원소의 성질 경향 분석</li>
+                </ul>
+
+                <h3>1.2 핵심 개념</h3>
+                
+                <h4>🔸 원자의 구성</h4>
+                <ul>
+                    <li><strong>양성자(Proton)</strong>: +1 전하, 원자핵 내부</li>
+                    <li><strong>중성자(Neutron)</strong>: 0 전하, 원자핵 내부</li>
+                    <li><strong>전자(Electron)</strong>: -1 전하, 원자핵 주위</li>
+                </ul>
+
+                <h4>🔸 원자 번호와 질량수</h4>
+                <div class="formula">
+                    원자 번호 (Z) = 양성자 수 = 전자 수 (중성 원자)<br>
+                    질량수 (A) = 양성자 수 + 중성자 수<br>
+                    중성자 수 (N) = A - Z
+                </div>
+
+                <h4>🔸 전자 배치</h4>
+                <p><strong>보어 모델</strong>: 전자는 K, L, M, N… 껍질에 배치</p>
+                <ul>
+                    <li>K 껍질 (n=1): 최대 2개</li>
+                    <li>L 껍질 (n=2): 최대 8개</li>
+                    <li>M 껍질 (n=3): 최대 18개</li>
+                </ul>
+
+                <div class="example">
+                    <strong>인(P, Z=15)의 전자 배치</strong><br>
+                    K: 2개, L: 8개, M: 5개 → <strong>2, 8, 5</strong><br>
+                    오비탈 표기: 1s² 2s² 2p⁶ 3s² 3p³
+                </div>
+
+                <h3>1.3 주기율표의 경향성</h3>
+                
+                <table>
+                    <tr>
+                        <th>성질</th>
+                        <th>→ 방향 (주기)</th>
+                        <th>↓ 방향 (족)</th>
+                    </tr>
+                    <tr>
+                        <td>원자 반지름</td>
+                        <td>감소</td>
+                        <td>증가</td>
+                    </tr>
+                    <tr>
+                        <td>이온화 에너지</td>
+                        <td>증가</td>
+                        <td>감소</td>
+                    </tr>
+                    <tr>
+                        <td>전기음성도</td>
+                        <td>증가</td>
+                        <td>감소</td>
+                    </tr>
+                </table>
+
+                <h3>1.4 모의고사 연계 예제</h3>
+                
+                <div class="example">
+                    <strong>문제 17번</strong>: 원자 번호가 X, 질량수가 Y일 때 중성자 수는?<br><br>
+                    <strong>정답: (A) Y - X</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    중성자 수 = 질량수 - 원자 번호 = Y - X
+                </div>
+
+                <div class="example">
+                    <strong>문제 18번</strong>: 인(P)의 원자 번호는 15다. 전자 배열은?<br><br>
+                    <strong>정답: (B) 2, 8, 5</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    - K껍질: 2개<br>
+                    - L껍질: 8개<br>
+                    - M껍질: 5개<br>
+                    총 15개 전자 → 3주기, 15족 원소
+                </div>
+
+                <div class="checklist">
+                    <h4>1단원 체크리스트</h4>
+                    <ul>
+                        <li>원자 번호와 질량수로 중성자 계산 가능?</li>
+                        <li>전자 배치 규칙(2, 8, 18) 이해?</li>
+                        <li>주기율표의 경향성 암기 완료?</li>
+                        <li>동위원소 개념 이해?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2단원: 화학 결합 -->
+            <section id="unit2">
+                <h2>2단원: 화학 결합과 분자 구조</h2>
+                
+                <div class="important-box">
+                    출제 포인트: 혼성 궤도 판단(sp, sp², sp³), Lewis 구조, 극성/비극성 분자
+                </div>
+
+                <h3>2.1 학습 목표</h3>
+                <ul>
+                    <li>이온 결합, 공유 결합, 금속 결합 구분</li>
+                    <li>Lewis 구조 그리기</li>
+                    <li>극성/비극성 분자 판단</li>
+                    <li>혼성 궤도 이해 및 분자 기하 예측</li>
+                </ul>
+
+                <h3>2.2 화학 결합의 종류</h3>
+                
+                <table>
+                    <tr>
+                        <th>결합 종류</th>
+                        <th>형성 원소</th>
+                        <th>특징</th>
+                    </tr>
+                    <tr>
+                        <td>이온 결합</td>
+                        <td>금속 + 비금속</td>
+                        <td>전자 이동, 정전기적 인력</td>
+                    </tr>
+                    <tr>
+                        <td>공유 결합</td>
+                        <td>비금속 + 비금속</td>
+                        <td>전자 공유</td>
+                    </tr>
+                    <tr>
+                        <td>금속 결합</td>
+                        <td>금속 + 금속</td>
+                        <td>전자 바다 모델</td>
+                    </tr>
+                </table>
+
+                <h3>2.3 혼성 궤도(Hybridization)</h3>
+                
+                <h4>🔸 혼성 궤도 판단 공식</h4>
+                <div class="formula">
+                    혼성 궤도 수 = σ 결합 수 + 비공유 전자쌍 수<br><br>
+                    - 2개 → sp (직선형)<br>
+                    - 3개 → sp² (평면 삼각형)<br>
+                    - 4개 → sp³ (정사면체)
+                </div>
+
+                <h4>🔸 σ 결합과 π 결합</h4>
+                <ul>
+                    <li><strong>σ 결합</strong>: 단일 결합, 오비탈 축 방향 겹침</li>
+                    <li><strong>π 결합</strong>: 이중/삼중 결합의 추가 결합</li>
+                    <li>예: C=O → 1개 σ + 1개 π</li>
+                </ul>
+
+                <h3>2.4 모의고사 연계 예제</h3>
+                
+                <div class="example">
+                    <strong>문제 19번</strong>: CH₃NO₂에서 N의 혼성 궤도는?<br><br>
+                    <strong>정답: (B) sp²</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    질소(N) 주위 분석:<br>
+                    - C-N: 1개 σ 결합<br>
+                    - N=O: 1개 σ 결합 (이중결합 중)<br>
+                    - 비공유 전자쌍: 1개<br>
+                    → 총 3개 영역 → <strong>sp² 혼성화</strong>
+                </div>
+
+                <div class="tip-box">
+                    혼성화 문제는 <strong>중심 원자</strong>를 먼저 찾고, 그 주위의 결합과 비공유 전자쌍을 세는 것이 핵심입니다!
+                </div>
+
+                <h3>2.5 극성과 비극성</h3>
+                
+                <h4>🔸 극성 분자 판단 기준</h4>
+                <ol>
+                    <li>전기음성도 차이 존재</li>
+                    <li>분자 구조가 비대칭</li>
+                </ol>
+
+                <div class="example">
+                    <strong>극성 분자</strong>: H₂O, NH₃, HF<br>
+                    <strong>비극성 분자</strong>: CH₄, CO₂, CCl₄ (대칭 구조)
+                </div>
+
+                <div class="checklist">
+                    <h4>2단원 체크리스트</h4>
+                    <ul>
+                        <li>이온/공유/금속 결합 구분 가능?</li>
+                        <li>혼성 궤도 공식 암기 완료?</li>
+                        <li>σ와 π 결합 차이 이해?</li>
+                        <li>극성 분자 판단 기준 숙지?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 3단원: 산-염기 -->
+            <section id="unit3">
+                <h2>3단원: 산-염기 반응과 pH</h2>
+                
+                <div class="important-box">
+                    출제 포인트: pH 계산, 희석 공식 적용, 중화 반응, 몰농도 변환
+                </div>
+
+                <h3>3.1 학습 목표</h3>
+                <ul>
+                    <li>브뢴스테드-로리 산-염기 정의 이해</li>
+                    <li>pH, pOH 계산</li>
+                    <li>중화 반응과 적정 개념</li>
+                    <li>농도 단위 변환 및 희석 계산</li>
+                </ul>
+
+                <h3>3.2 산-염기 정의</h3>
+                
+                <h4>🔸 브뢴스테드-로리 정의</h4>
+                <ul>
+                    <li><strong>산(Acid)</strong>: H⁺ 공여자 (양성자 기부)</li>
+                    <li><strong>염기(Base)</strong>: H⁺ 수용자 (양성자 수용)</li>
+                </ul>
+
+                <div class="example">
+                    HCl + H₂O → H₃O⁺ + Cl⁻<br>
+                    HCl = 산, H₂O = 염기
+                </div>
+
+                <h3>3.3 pH와 pOH</h3>
+                
+                <div class="formula">
+                    pH = -log[H⁺]<br>
+                    pOH = -log[OH⁻]<br>
+                    pH + pOH = 14 (25°C)
+                </div>
+
+                <h4>🔸 pH 척도</h4>
+                <ul>
+                    <li>pH < 7: 산성</li>
+                    <li>pH = 7: 중성</li>
+                    <li>pH > 7: 염기성</li>
+                </ul>
+
+                <h3>3.4 몰농도와 희석</h3>
+                
+                <h4>🔸 몰농도(Molarity)</h4>
+                <div class="formula">
+                    M = $\frac{\text{mol}}{\text{L}}$ = $\frac{\text{질량(g)}}{\text{몰질량(g/mol)} \times \text{부피(L)}}$
+                </div>
+
+                <h4>🔸 희석 공식</h4>
+                <div class="formula">
+                    $C_1V_1 = C_2V_2$<br><br>
+                    $C_1$ = 초기 농도, $V_1$ = 초기 부피<br>
+                    $C_2$ = 최종 농도, $V_2$ = 최종 부피
+                </div>
+
+                <h3>3.5 모의고사 연계 예제</h3>
+                
+                <div class="example">
+                    <strong>문제 15번</strong>: 0.10 M H₂SO₄ 100 mL를 4.9 g/L로 만들려면 물을 얼마나 추가?<br>
+                    (H₂SO₄ 몰질량 = 98 g/mol)<br><br>
+                    <strong>정답: (C) 100 mL</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    1단계: 현재 농도 g/L로 변환<br>
+                    0.10 M = 0.10 mol/L × 98 g/mol = <strong>9.8 g/L</strong><br><br>
+                    2단계: 희석 배율 계산<br>
+                    9.8 g/L → 4.9 g/L = <strong>2배 희석</strong><br><br>
+                    3단계: 최종 부피 계산<br>
+                    $C_1V_1 = C_2V_2$<br>
+                    9.8 × 100 = 4.9 × $V_2$<br>
+                    $V_2$ = 200 mL<br><br>
+                    4단계: 추가할 물의 양<br>
+                    200 mL - 100 mL = <strong>100 mL</strong>
+                </div>
+
+                <div class="tip-box">
+                    황산(H₂SO₄)은 2단계 이온화되므로 1 mol → 2 mol H⁺를 생성합니다!
+                </div>
+
+            <section id="unit4">
+                <h2>4단원: 산화-환원 반응</h2>
+                
+                <div class="important-box">
+                    출제 포인트: 산화수 계산, 전자 이동량, 산화제/환원제 식별, 반쪽 반응식
+                </div>
+
+                <h3>4.1 학습 목표</h3>
+                <ul>
+                    <li>산화수 계산</li>
+                    <li>산화제/환원제 식별</li>
+                    <li>반쪽 반응식 작성</li>
+                    <li>전자 이동량 계산</li>
+                </ul>
+
+                <h3>4.2 산화-환원 기본 개념</h3>
+                
+                <h4>🔸 정의</h4>
+                <ul>
+                    <li><strong>산화(Oxidation)</strong>: 전자 잃음 (산화수 ↑)</li>
+                    <li><strong>환원(Reduction)</strong>: 전자 얻음 (산화수 ↓)</li>
+                    <li><strong>산화제</strong>: 자신은 환원되고, 상대를 산화시킴</li>
+                    <li><strong>환원제</strong>: 자신은 산화되고, 상대를 환원시킴</li>
+                </ul>
+
+                <div class="tip-box">
+                    암기법: <strong>OIL RIG</strong><br>
+                    Oxidation Is Loss (of electrons)<br>
+                    Reduction Is Gain (of electrons)
+                </div>
+
+                <h3>4.3 산화수 규칙</h3>
+                
+                <table>
+                    <tr>
+                        <th>물질</th>
+                        <th>산화수</th>
+                    </tr>
+                    <tr>
+                        <td>원소 (H₂, O₂, Na)</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>단일 이온 (Na⁺, Cl⁻)</td>
+                        <td>전하와 같음</td>
+                    </tr>
+                    <tr>
+                        <td>산소 (대부분)</td>
+                        <td>-2</td>
+                    </tr>
+                    <tr>
+                        <td>수소 (대부분)</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>알칼리 금속 (1족)</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>알칼리 토금속 (2족)</td>
+                        <td>+2</td>
+                    </tr>
+                </table>
+
+                <h3>4.4 반쪽 반응식</h3>
+                
+                <h4>🔸 주요 반쪽 반응</h4>
+                
+                <div class="formula">
+                    <strong>MnO₄⁻ (망가니즈산 이온)</strong><br>
+                    MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O<br>
+                    (5개 전자 얻음 = 환원)
+                </div>
+
+                <div class="formula">
+                    <strong>I⁻ (아이오딘 이온)</strong><br>
+                    2I⁻ → I₂ + 2e⁻<br>
+                    (전자 잃음 = 산화)
+                </div>
+
+                <h3>4.5 모의고사 연계 예제</h3>
+                
+                <div class="example">
+                    <strong>문제 16번</strong>: MnO₄⁻ 1 mol이 I⁻를 몇 mol 산화시키는가?<br><br>
+                    <strong>정답: (E) 5</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    1단계: 반쪽 반응식<br>
+                    - MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O<br>
+                    - 2I⁻ → I₂ + 2e⁻<br><br>
+                    2단계: 전자 균형<br>
+                    - MnO₄⁻ 1개 → 5e⁻ 얻음<br>
+                    - I⁻ 1개 → 1e⁻ 잃음<br><br>
+                    3단계: 몰비 계산<br>
+                    MnO₄⁻ 1 mol이 5 mol 전자를 받으려면<br>
+                    → I⁻ <strong>5 mol</strong> 필요
+                </div>
+
+                <div class="example">
+                    <strong>문제 12번</strong>: Zn은 Sn²⁺를 환원시키고, Pb는 안 함 → 결론?<br><br>
+                    <strong>정답: (C) Zinc is a stronger reductor than lead</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    - Zn + Sn²⁺ → Zn²⁺ + Sn (반응 O)<br>
+                    - Pb + Sn²⁺ → 반응 없음 (반응 X)<br><br>
+                    → Zn이 Sn²⁺를 환원 = Zn이 더 강한 환원제<br>
+                    → Pb는 반응 안 함 = Pb가 더 약한 환원제<br><br>
+                    <strong>환원력 순서: Zn > Sn > Pb</strong>
+                </div>
+
+                <div class="checklist">
+                    <h4>4단원 체크리스트</h4>
+                    <ul>
+                        <li>산화수 규칙 암기 완료?</li>
+                        <li>반쪽 반응식 작성 가능?</li>
+                        <li>전자 이동 계산 숙달?</li>
+                        <li>산화제/환원제 구분 가능?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 5단원: 양적 관계 -->
+            <section id="unit5">
+                <h2>5단원: 양적 관계와 기체 법칙</h2>
+                
+                <div class="important-box">
+                    출제 포인트: 몰 계산, STP 부피(22.4 L/mol), 한계 반응물, 이상 기체 법칙
+                </div>
+
+                <h3>5.1 학습 목표</h3>
+                <ul>
+                    <li>화학 반응식 균형</li>
+                    <li>한계 반응물 계산</li>
+                    <li>기체 부피 (STP에서 22.4 L/mol)</li>
+                    <li>이상 기체 법칙 적용</li>
+                </ul>
+
+                <h3>5.2 몰(Mole)의 개념</h3>
+                
+                <div class="formula">
+                    1 mol = 6.02 × 10²³ 개 (아보가드로 수)<br><br>
+                    몰 수 = $\frac{\text{질량(g)}}{\text{몰질량(g/mol)}}$
+                </div>
+
+                <h4>🔸 몰질량 계산</h4>
+                <div class="example">
+                    H₂SO₄의 몰질량:<br>
+                    H(1) × 2 + S(32) + O(16) × 4 = 2 + 32 + 64 = <strong>98 g/mol</strong>
+                </div>
+
+                <h3>5.3 기체 법칙</h3>
+                
+                <h4>🔸 STP 조건</h4>
+                <ul>
+                    <li>온도: 0°C (273 K)</li>
+                    <li>압력: 1 atm (101.3 kPa)</li>
+                    <li><strong>1 mol 기체 = 22.4 L</strong></li>
+                </ul>
+
+                <h4>🔸 이상 기체 법칙</h4>
+                <div class="formula">
+                    pV = nRT<br><br>
+                    p = 압력 (atm)<br>
+                    V = 부피 (L)<br>
+                    n = 몰 수 (mol)<br>
+                    R = 기체 상수 (0.0821 L·atm/mol·K)<br>
+                    T = 절대온도 (K)
+                </div>
+
+                <h3>5.4 한계 반응물</h3>
+                
+                <h4>🔸 판단 방법</h4>
+                <ol>
+                    <li>각 반응물의 몰 수 계산</li>
+                    <li>반응식의 몰비와 비교</li>
+                    <li>몰 수 ÷ 계수 값이 작은 것이 한계 반응물</li>
+                </ol>
+
+                <h3>5.5 모의고사 연계 예제</h3>
+                
+                <div class="example">
+                    <strong>문제 11번</strong>: NH₄ClO₄ 11.75 ton + Al 2.70 ton → N₂ 부피는?<br><br>
+                    <strong>반응식</strong>:<br>
+                    6NH₄ClO₄ + 10Al → 3N₂ + 5Al₂O₃ + 6HCl + 9H₂O<br><br>
+                    <strong>정답: (D) 6.72×10⁵ L</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    1단계: 몰 수 계산<br>
+                    - NH₄ClO₄: $\frac{11.75 \times 10^6 \text{ g}}{117.5 \text{ g/mol}} = 1 \times 10^5$ mol<br>
+                    - Al: $\frac{2.7 \times 10^6 \text{ g}}{27 \text{ g/mol}} = 1 \times 10^5$ mol<br><br>
+                    2단계: 한계 반응물 찾기<br>
+                    - NH₄ClO₄: $\frac{1 \times 10^5}{6} = 16,667$ (계수로 나눈 값)<br>
+                    - Al: $\frac{1 \times 10^5}{10} = 10,000$ ← <strong>한계 반응물!</strong><br><br>
+                    3단계: N₂ 생성량<br>
+                    10 mol Al → 3 mol N₂<br>
+                    $1 \times 10^5$ mol Al → $3 \times 10^4$ mol N₂<br><br>
+                    4단계: 부피 계산 (STP)<br>
+                    V = $3 \times 10^4$ mol × 22.4 L/mol = <strong>6.72×10⁵ L</strong>
+                </div>
+
+                <div class="tip-box">
+                    한계 반응물을 정확히 찾는 것이 핵심! 계수로 나눈 값이 가장 작은 것이 한계입니다.
+                </div>
+
+                <div class="checklist">
+                    <h4>5단원 체크리스트</h4>
+                    <ul>
+                        <li>몰 계산 공식 암기?</li>
+                        <li>STP 부피(22.4 L/mol) 숙지?</li>
+                        <li>한계 반응물 판단 가능?</li>
+                        <li>이상 기체 법칙 적용 가능?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6단원: 반응 속도 -->
+            <section id="unit6">
+                <h2>6단원: 반응 속도와 화학 평형</h2>
+                
+                <div class="important-box">
+                    출제 포인트: 촉매의 역할, 활성화 에너지, 반응 속도 그래프, 온도 단위 변환
+                </div>
+
+                <h3>6.1 학습 목표</h3>
+                <ul>
+                    <li>반응 속도에 영향을 주는 요인</li>
+                    <li>촉매의 역할 이해</li>
+                    <li>평형 상태와 르샤틀리에 원리</li>
+                    <li>반응 경로와 활성화 에너지</li>
+                </ul>
+
+                <h3>6.2 충돌 이론</h3>
+                
+                <h4>🔸 반응 조건</h4>
+                <ul>
+                    <li>분자들이 충돌해야 함</li>
+                    <li>충돌 시 <strong>활성화 에너지</strong> 이상의 에너지 필요</li>
+                    <li>적절한 방향과 각도로 충돌</li>
+                </ul>
+
+                <div class="formula">
+                    활성화 에너지 (Ea) = 반응이 일어나는데 필요한 최소 에너지
+                </div>
+
+                <h3>6.3 반응 속도 영향 요인</h3>
+                
+                <table>
+                    <tr>
+                        <th>요인</th>
+                        <th>효과</th>
+                        <th>이유</th>
+                    </tr>
+                    <tr>
+                        <td>농도 증가</td>
+                        <td>속도 ↑</td>
+                        <td>충돌 빈도 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>온도 상승</td>
+                        <td>속도 ↑</td>
+                        <td>분자 운동 에너지 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>촉매 추가</td>
+                        <td>속도 ↑</td>
+                        <td>활성화 에너지 ↓</td>
+                    </tr>
+                    <tr>
+                        <td>표면적 증가</td>
+                        <td>속도 ↑</td>
+                        <td>접촉 면적 ↑</td>
+                    </tr>
+                </table>
+
+                <h3>6.4 촉매(Catalyst)</h3>
+                
+                <h4>🔸 촉매의 특징</h4>
+                <ul>
+                    <li>활성화 에너지를 낮춤 → <strong>반응 속도 증가</strong></li>
+                    <li>반응 전후 <strong>자신은 변화 없음</strong></li>
+                    <li><strong>평형 위치는 변하지 않음</strong> (최종 생성물 양 동일)</li>
+                    <li>정반응과 역반응 속도를 똑같이 증가시킴</li>
+                </ul>
+
+                <div class="important-box">
+                    촉매는 <strong>속도만</strong> 빠르게 할 뿐, <strong>수율(최종 생성량)</strong>은 변하지 않습니다!
+                </div>
+
+                <h3>6.5 모의고사 연계 예제</h3>
+                
+                <div class="example">
+                    <strong>문제 13번</strong>: H₂O₂ 분해 그래프 - 촉매 유무에 따른 반응<br><br>
+                    <strong>정답: (B)</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    촉매가 있는 반응의 특징:<br>
+                    1. <strong>초기 기울기가 더 큼</strong> (빠른 속도)<br>
+                    2. <strong>최종 생성물 양은 동일</strong> (수평선 높이 같음)<br>
+                    3. 더 빨리 평형에 도달<br><br>
+                    그래프 (B)가 이 조건을 만족!
+                </div>
+
+                <div class="example">
+                    <strong>문제 14번</strong>: 이상 기체 V-T 그래프 → p(t)는?<br><br>
+                    <strong>정답: (C)</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    이상 기체 법칙: pV = nRT<br>
+                    → p = $\frac{nRT}{V}$<br><br>
+                    그래프 분석:<br>
+                    - V가 일정하고 T가 증가 → p 증가<br>
+                    - V가 증가하고 T가 일정 → p 감소<br><br>
+                    구간별로 압력 변화를 추적하면 (C)가 정답
+                </div>
+
+                <h3>6.6 온도 단위 변환</h3>
+                
+                <div class="formula">
+                    섭씨 → 화씨: $°F = \frac{9}{5}°C + 32$<br><br>
+                    화씨 → 섭씨: $°C = \frac{5}{9}(°F - 32)$<br><br>
+                    섭씨 → 켈빈: K = °C + 273.15
+                </div>
+
+                <div class="example">
+                    <strong>문제 20번</strong>: °C = °F가 되는 온도는?<br><br>
+                    <strong>정답: (A) -40°</strong><br><br>
+                    <strong>해설</strong>:<br>
+                    x = $\frac{9}{5}x + 32$<br>
+                    x - $\frac{9}{5}x$ = 32<br>
+                    $-\frac{4}{5}x$ = 32<br>
+                    x = <strong>-40</strong>
+                </div>
+
+                <div class="checklist">
+                    <h4>6단원 체크리스트</h4>
+                    <ul>
+                        <li>촉매의 특징 3가지 암기?</li>
+                        <li>반응 속도 영향 요인 이해?</li>
+                        <li>활성화 에너지 개념 숙지?</li>
+                        <li>온도 단위 변환 가능?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 학습 전략 섹션 -->
+            <section id="strategy">
+                <h2>시험 대비 전략</h2>
+
+                <h3>✅ 단원별 학습 우선순위</h3>
+
+                <table>
+                    <tr>
+                        <th>단원</th>
+                        <th>중요도</th>
+                        <th>핵심 주제</th>
+                    </tr>
+                    <tr>
+                        <td>5. 양적 관계</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>몰 계산, STP 부피, 한계 반응물</td>
+                    </tr>
+                    <tr>
+                        <td>4. 산화-환원</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>전자 이동, 반쪽 반응식</td>
+                    </tr>
+                    <tr>
+                        <td>3. 산-염기</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>pH 계산, 희석 공식</td>
+                    </tr>
+                    <tr>
+                        <td>2. 화학 결합</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>혼성화, Lewis 구조</td>
+                    </tr>
+                    <tr>
+                        <td>1. 원자 구조</td>
+                        <td>⭐⭐⭐</td>
+                        <td>전자배치, 중성자 계산</td>
+                    </tr>
+                    <tr>
+                        <td>6. 반응 속도</td>
+                        <td>⭐⭐⭐</td>
+                        <td>촉매, 그래프 해석</td>
+                    </tr>
+                </table>
+
+                <h3>📝 효과적인 학습 방법</h3>
+
+                <div class="highlight-box">
+                    <h4>1. 개념 이해 → 공식 암기 → 문제 풀이</h4>
+                    <p>단순 암기보다는 <strong>원리 이해</strong>가 먼저! 공식의 유래를 이해하면 응용 문제도 쉽게 풀립니다.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>2. 단위 주의</h4>
+                    <p>mol, L, g, ton 등 단위 변환에 특히 주의하세요. 계산 실수의 90%가 단위 오류입니다!</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>3. 반복 학습</h4>
+                    <p>화학은 누적 학습이 중요합니다. 1-2단원이 약하면 3-6단원이 어렵습니다.</p>
+                </div>
+
+                <h3>⏰ 시험 시간 관리</h3>
+
+                <ul>
+                    <li><strong>1차 독해 (3분)</strong>: 전체 문제 훑어보기</li>
+                    <li><strong>쉬운 계산 문제 (10분)</strong>: 몰 계산, pH, 전자배치</li>
+                    <li><strong>중간 난이도 (10분)</strong>: 혼성화, 산화환원</li>
+                    <li><strong>복잡한 문제 (5분)</strong>: 한계 반응물, 그래프 해석</li>
+                    <li><strong>검토 (2분)</strong>: 단위 확인, 계산 실수 점검</li>
+                </ul>
+
+                <h3>💡 주요 암기 사항</h3>
+
+                <div class="checklist">
+                    <h4>필수 암기 리스트</h4>
+                    <ul>
+                        <li>STP 조건: 1 mol = 22.4 L</li>
+                        <li>pH + pOH = 14</li>
+                        <li>희석 공식: $C_1V_1 = C_2V_2$</li>
+                        <li>MnO₄⁻ → Mn²⁺: 5e⁻</li>
+                        <li>혼성화: 결합수 + 비공유쌍 = 궤도수</li>
+                        <li>중성자 = 질량수 - 원자번호</li>
+                    </ul>
+                </div>
+
+                <div class="important-box">
+                    <strong>시험 당일 마인드셋</strong><br>
+                    - 계산기 사용법 숙지 (과학용 계산기 필수)<br>
+                    - 단위 변환에 특히 주의<br>
+                    - 모르는 문제에 시간 낭비 금지<br>
+                    - 부분 점수 노리기: 과정을 명확히 작성
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>화학의 세계를 정복하세요! 🧪⚗️</strong></p>
+            <p>Ghent University Global Campus - Chemistry Aptitude Test</p>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <a href="gugc_math_guide.html" class="back-to-math">
+                    📘 수학 강의록으로 돌아가기
+                </a>
+            </div>
+            
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                © 2025 GUGC 입학시험 준비 강의록 | 모든 내용은 교육 목적으로 제작되었습니다.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 부드러운 스크롤 효과
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 현재 섹션 하이라이트
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.background = '';
+                link.style.color = 'white';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#22c55e';
+                    link.style.color = '#0c4a6e';
+                }
+            });
+        });
+
+        // 인쇄 최적화
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.pageBreakInside = 'avoid';
+            });
+        });
+
+        // MathJax 로딩 완료 메시지
+        window.MathJax = {
+            startup: {
+                pageReady: () => {
+                    return MathJax.startup.defaultPageReady().then(() => {
+                        console.log('MathJax 수식 렌더링 완료!');
+                    });
+                }
+            }
+        };
+    </script>
+</body>
+</html>

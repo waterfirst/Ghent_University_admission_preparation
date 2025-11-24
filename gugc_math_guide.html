@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>겐트대학교 입학시험 수학 강의록</title>
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif KR', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background: #d4af37;
+            color: #1e3c72;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: "📘";
+            font-size: 1.2em;
+        }
+
+        h3 {
+            color: #2a5298;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #d4af37;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 5px solid #1e3c72;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box::before {
+            content: "📌 시험 팁: ";
+            font-weight: bold;
+            color: #856404;
+        }
+
+        .important-box {
+            background: #d1ecf1;
+            border-left: 5px solid #0c5460;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important-box::before {
+            content: "✅ 핵심: ";
+            font-weight: bold;
+            color: #0c5460;
+        }
+
+        .formula {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        
+        .formula .MathJax {
+            font-size: 1.2em !important;
+        }
+
+        .example {
+            background: #e7f3ff;
+            border-left: 5px solid #2a5298;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example::before {
+            content: "💡 예시: ";
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        table th {
+            background: #1e3c72;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        table tr:hover {
+            background: #e9ecef;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .checklist {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .checklist h4 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li::before {
+            content: "✅ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 겐트대학교 입학시험 수학 강의록</h1>
+            <p>GUGC Online Aptitude Test – Mathematics Section</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#intro">소개</a></li>
+                <li><a href="#calculus">1. 미적분학</a></li>
+                <li><a href="#algebra">2. 대수학</a></li>
+                <li><a href="#trigonometry">3. 삼각법</a></li>
+                <li><a href="#geometry">4. 기하학</a></li>
+                <li><a href="#strategy">시험 전략</a></li>
+                <li><a href="chem.html" style="background: #28a745; color: white;">🧪 화학 강의록</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- 소개 섹션 -->
+            <section id="intro">
+                <h2>강의록 소개</h2>
+                
+                <div class="highlight-box">
+                    <p>이 강의록은 겐트대학교 글로벌 캠퍼스(GUGC) 온라인 입학 시험을 준비하기 위한 <strong>수학 핵심 강의록</strong>입니다. 제공된 시험 출제 범위와 모의고사 문제를 바탕으로 <strong>4대 영역</strong>(미적분, 대수, 삼각법, 기하학)별로 구성하였으며, 시험에 실제로 나올 수 있는 개념과 문제 유형에 초점을 맞추어 제작되었습니다.</p>
+                </div>
+
+                <h3>출제 영역 개요</h3>
+                <ul>
+                    <li><strong>미적분학 (Calculus)</strong>: 함수의 성질, 도함수, 적분, 극한</li>
+                    <li><strong>대수학 (Algebra)</strong>: 다항식, 방정식, 부등식, 이항정리</li>
+                    <li><strong>삼각법 (Trigonometry)</strong>: 삼각함수, 항등식, 삼각방정식</li>
+                    <li><strong>기하학 (Geometry)</strong>: 좌표, 직선, 원의 방정식</li>
+                </ul>
+            </section>
+
+            <!-- 1단원: 미적분학 -->
+            <section id="calculus">
+                <h2>1단원: 미적분학 (Calculus)</h2>
+                
+                <div class="important-box">
+                    출제 빈도 높은 주제: 도함수의 정의와 계산, 접선 방정식, 함수의 증가/감소 및 부호, 무리함수와 절댓값 함수의 성질, 극한과 점근선, 부정적분(치환적분 중심)
+                </div>
+
+                <h3>1.1 함수의 기본 성질과 그래프</h3>
+                
+                <h4>🔑 핵심 개념</h4>
+                <ul>
+                    <li><strong>정의역(Domain)</strong>: 함수가 정의되는 x값의 집합
+                        <ul>
+                            <li>다항함수 → ℝ 전체</li>
+                            <li>유리함수 P(x)/Q(x) → Q(x) ≠ 0</li>
+                            <li>무리함수 √R(x) → R(x) ≥ 0</li>
+                        </ul>
+                    </li>
+                    <li><strong>영점(Zeros)</strong>: f(x) = 0인 x → 그래프가 x축과 만나는 점</li>
+                    <li><strong>증가/감소</strong>: 도함수 f'(x) > 0이면 증가, < 0이면 감소</li>
+                </ul>
+
+                <div class="tip-box">
+                    정의역을 먼저 확인! 무리함수에서는 부등식 풀 때 양변 제곱 전 양수 확인 필수. 그래프 개형보다 부호·증감·영점에 집중하세요.
+                </div>
+
+                <h3>1.2 절댓값 함수</h3>
+                
+                <div class="formula">
+                    $|x| = \begin{cases} x & \text{if } x \geq 0 \\ -x & \text{if } x < 0 \end{cases}$
+                </div>
+
+                <h4>🔍 성질</h4>
+                <ul>
+                    <li>항상 |x| ≥ 0</li>
+                    <li>미분 불가능한 점 존재 (예: x = 0에서 꺾임)</li>
+                    <li>삼각부등식: |a + b| ≤ |a| + |b|</li>
+                </ul>
+
+                <h3>1.3 일대일 함수와 역함수</h3>
+                
+                <h4>🔑 정의</h4>
+                <ul>
+                    <li><strong>일대일 함수</strong>: x₁ ≠ x₂ ⇒ f(x₁) ≠ f(x₂)</li>
+                    <li><strong>가로선 테스트</strong>: 수평선이 그래프와 두 번 이상 만나면 일대일 아님</li>
+                </ul>
+
+                <div class="example">
+                    <strong>모의고사 6번 분석</strong><br>
+                    f(n,m) = 3^m × 5^n: 소인수분해의 유일성에 의해 서로 다른 (m,n)이면 값이 다름 → 일대일! (정답 C)<br>
+                    f(n,m) = m+n: (1,3)과 (2,2)가 같은 값 → 일대일 아님
+                </div>
+
+                <h3>1.4 지수·로그함수의 성질</h3>
+
+                <table>
+                    <tr>
+                        <th>함수</th>
+                        <th>정의역</th>
+                        <th>치역</th>
+                        <th>증감성</th>
+                    </tr>
+                    <tr>
+                        <td>a^x (a>1)</td>
+                        <td>ℝ</td>
+                        <td>(0, ∞)</td>
+                        <td>증가</td>
+                    </tr>
+                    <tr>
+                        <td>log_a x (a>1)</td>
+                        <td>(0, ∞)</td>
+                        <td>ℝ</td>
+                        <td>증가</td>
+                    </tr>
+                </table>
+
+                <h4>🔧 도함수</h4>
+                <ul>
+                    <li>$\frac{d}{dx}(e^x) = e^x$</li>
+                    <li>$\frac{d}{dx}(\ln x) = \frac{1}{x}$</li>
+                    <li>$\frac{d}{dx}(a^x) = a^x \ln a$</li>
+                    <li>$\frac{d}{dx}(\log_a x) = \frac{1}{x \ln a}$</li>
+                </ul>
+
+                <h3>1.5 극한과 연속성</h3>
+                
+                <h4>🔑 정의</h4>
+                <ul>
+                    <li>lim(x→a) f(x) = L: x가 a에 가까워질 때 f(x)가 L에 가까워짐</li>
+                    <li><strong>연속</strong>: lim(x→a) f(x) = f(a)</li>
+                </ul>
+
+                <h3>1.6 점근선 (Asymptotes)</h3>
+
+                <table>
+                    <tr>
+                        <th>종류</th>
+                        <th>조건</th>
+                        <th>예시</th>
+                    </tr>
+                    <tr>
+                        <td>수직</td>
+                        <td>lim(x→a) f(x) = ±∞</td>
+                        <td>f(x)=1/(x-2) → x=2</td>
+                    </tr>
+                    <tr>
+                        <td>수평</td>
+                        <td>lim(x→±∞) f(x) = L</td>
+                        <td>f(x)=(2x+1)/x → y=2</td>
+                    </tr>
+                    <tr>
+                        <td>사선(Oblique)</td>
+                        <td>차수: 분자 = 분모 + 1</td>
+                        <td>f(x)=x²/(x+1) → y = x - 1</td>
+                    </tr>
+                </table>
+
+                <div class="tip-box">
+                    유리함수에서 분자 차수가 분모보다 1 크면 사선점근선 존재
+                </div>
+
+                <h3>1.7 도함수의 정의와 계산</h3>
+
+                <h4>🔑 정의</h4>
+                <div class="formula">
+                    $f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$
+                </div>
+
+                <h4>🔧 기본 도함수</h4>
+                <ul>
+                    <li>$(x^n)' = nx^{n-1}$</li>
+                    <li>$(\sin x)' = \cos x$, $(\cos x)' = -\sin x$</li>
+                    <li>$(e^x)' = e^x$, $(\ln x)' = \frac{1}{x}$</li>
+                </ul>
+
+                <h4>🔗 연쇄법칙 (Chain Rule)</h4>
+                <div class="formula">
+                    $\frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x)$
+                </div>
+
+                <div class="example">
+                    <strong>모의고사 1번 예제</strong><br>
+                    f(x) = x cos(x²)<br>
+                    → f'(x) = cos(x²) + x · (-sin(x²)) · 2x = cos(x²) - 2x² sin(x²)<br>
+                    x = √(2π)/2일 때 → x² = π/2<br>
+                    cos(π/2) = 0, sin(π/2) = 1<br>
+                    f'(x) = 0 - 2 · (π/2) · 1 = -π (정답 A)
+                </div>
+
+                <div class="important-box">
+                    합성함수 → 연쇄법칙 필수!
+                </div>
+
+                <h3>1.8 도함수의 응용</h3>
+
+                <h4>🔹 접선 방정식</h4>
+                <div class="formula">
+                    $y = f(a) + f'(a)(x - a)$
+                </div>
+
+                <h4>🔹 극값</h4>
+                <ul>
+                    <li>f'(x) = 0이면서 부호 변화 → 극대/극소</li>
+                </ul>
+
+                <h4>🔹 오목성 (Concavity)</h4>
+                <ul>
+                    <li>f''(x) > 0 → 위로 볼록 (concave up)</li>
+                    <li>f''(x) < 0 → 아래로 볼록 (concave down)</li>
+                </ul>
+
+                <h4>🔹 로피탈 법칙 (L'Hôpital's Rule)</h4>
+                <p>0/0 또는 ∞/∞ 꼴일 때:</p>
+                <div class="formula">
+                    $\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}$
+                </div>
+
+                <h3>1.9 부정적분과 적분법</h3>
+
+                <h4>🔑 부정적분 정의</h4>
+                <div class="formula">
+                    $F'(x) = f(x) \quad \Rightarrow \quad \int f(x)\,dx = F(x) + C$
+                </div>
+
+                <h4>🔧 기본 적분</h4>
+                <ul>
+                    <li>$\int x^n dx = \frac{x^{n+1}}{n+1} + C$ (단, $n \neq -1$)</li>
+                    <li>$\int e^x dx = e^x + C$</li>
+                    <li>$\int \frac{1}{x} dx = \ln|x| + C$</li>
+                </ul>
+
+                <h4>🔄 치환적분 (Substitution)</h4>
+                <div class="formula">
+                    $\int f(g(x))g'(x)\,dx = \int f(u)\,du \quad \text{(단, } u = g(x)\text{)}$
+                </div>
+
+                <div class="example">
+                    <strong>모의고사 4번 예제</strong><br>
+                    ∫[e^√x / √x]dx<br>
+                    u = √x ⇒ x = u² ⇒ dx = 2u du<br>
+                    ∫(e^u / u) · 2u du = ∫2e^u du = 2e^u + C = 2e^√x + C (정답 B)
+                </div>
+
+                <h4>🧩 부분적분 (Integration by Parts)</h4>
+                <div class="formula">
+                    $\int u\,dv = uv - \int v\,du$
+                </div>
+
+                <div class="checklist">
+                    <h4>1단원 마무리 체크리스트</h4>
+                    <ul>
+                        <li>함수의 정의역과 치역 판단 가능?</li>
+                        <li>도함수 정의와 연쇄법칙 숙지?</li>
+                        <li>무리함수·절댓값함수 구간 나누기 가능?</li>
+                        <li>일대일 함수 판별 기준 이해?</li>
+                        <li>치환적분 문제 1분 안에 풀 수 있나?</li>
+                        <li>접선 방정식 → h(x) = √f(x) 형태 미분 가능?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2단원: 대수학 -->
+            <section id="algebra">
+                <h2>2단원: 대수학 (Algebra)</h2>
+
+                <div class="important-box">
+                    출제 포인트: 다항식 나눗셈(조립제법) → 나머지 구하기, 이항정리 → 특정 항의 계수, 다양한 함수를 포함한 방정식/부등식 풀이 → 정의역 체크 필수!
+                </div>
+
+                <h3>2.1 다항식의 나눗셈</h3>
+
+                <h4>🔑 핵심 개념</h4>
+                <ul>
+                    <li><strong>나머지정리</strong>: f(x)를 (x - a)로 나눈 나머지는 f(a)</li>
+                    <li><strong>조립제법</strong>: 일차 인수 (x - a)로 빠르게 나눌 때 사용</li>
+                </ul>
+
+                <div class="example">
+                    f(x) = 2x³ - 3x² + x - 5를 (x - 2)로 나누면:<br>
+                    f(2) = 2(8) - 3(4) + 2 - 5 = 16 - 12 + 2 - 5 = 1 → 나머지 = 1
+                </div>
+
+                <div class="tip-box">
+                    조립제법은 계수가 정수이고 인수가 일차일 때 유용. 복잡한 나눗셈은 나머지정리로 빠르게 검증 가능.
+                </div>
+
+                <h3>2.2 이항정리 (Binomial Theorem)</h3>
+
+                <h4>🔑 정의</h4>
+                <div class="formula">
+                    $(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$
+                </div>
+
+                <ul>
+                    <li>$\binom{n}{k} = \frac{n!}{k!(n-k)!}$: 이항계수</li>
+                    <li>특정 항: $(k+1)$번째 항 = $\binom{n}{k} a^{n-k} b^k$</li>
+                </ul>
+
+                <h4>📌 자주 묻는 질문 유형</h4>
+                <div class="example">
+                    (x + 2)⁵에서 x³의 계수는?<br>
+                    → k = 2 (왜냐면 x^(5-2) = x³)<br>
+                    → C(5,2) · 2² = 10 · 4 = 40
+                </div>
+
+                <div class="important-box">
+                    지수와 항 번호의 관계를 정확히 파악해야 함. a = x, b = 1/x 같은 경우, 상수항은 x^k · x^(-k) = x⁰
+                </div>
+
+                <h3>2.3 방정식과 부등식 풀이</h3>
+
+                <h4>📌 공통 원칙</h4>
+                <ol>
+                    <li><strong>정의역 먼저 확인</strong>
+                        <ul>
+                            <li>유리식: 분모 ≠ 0</li>
+                            <li>무리식: √ 안 ≥ 0</li>
+                            <li>로그: 진수 > 0, 밑 > 0 and ≠ 1</li>
+                        </ul>
+                    </li>
+                    <li>양변 제곱 시 무연근 발생 가능성 → 반드시 검증!</li>
+                    <li>부등식: 로그/무리 함수에서 함수의 증감성 고려</li>
+                </ol>
+
+                <h4>✍️ 유형별 풀이 전략</h4>
+
+                <h4>(1) 유리방정식</h4>
+                <div class="example">
+                    2/(x-1) = 3/(x+2)<br>
+                    → x ≠ 1, -2 확인 후, 양변에 (x-1)(x+2) 곱함<br>
+                    → 2(x+2) = 3(x-1) ⇒ 2x + 4 = 3x - 3 ⇒ x = 7
+                </div>
+
+                <h4>(2) 무리방정식</h4>
+                <div class="example">
+                    √(x + 3) = x - 1<br>
+                    → 양변 ≥ 0 → x - 1 ≥ 0 ⇒ x ≥ 1<br>
+                    → 제곱: x + 3 = (x - 1)² = x² - 2x + 1<br>
+                    → x² - 3x - 2 = 0 → 해 구한 후 x ≥ 1에 만족하는지 확인
+                </div>
+
+                <h4>(3) 지수방정식</h4>
+                <div class="example">
+                    밑 통일: 4^x = 8 ⇒ (2²)^x = 2³ ⇒ 2x = 3 ⇒ x = 3/2
+                </div>
+
+                <h4>(4) 로그방정식</h4>
+                <div class="example">
+                    log₂(x+1) + log₂(x-1) = 3<br>
+                    → log₂[(x+1)(x-1)] = 3 ⇒ x² - 1 = 2³ = 8<br>
+                    → x² = 9 ⇒ x = ±3, but x>1 → x = 3
+                </div>
+
+                <div class="tip-box">
+                    모든 해는 정의역에 포함되어야 함! 검증 단계 생략 금지.
+                </div>
+
+                <h3>2.4 연립방정식</h3>
+
+                <h4>🔑 해의 종류</h4>
+                <ul>
+                    <li><strong>유일한 해</strong>: 두 직선이 한 점에서 만남 → 기울기 다름</li>
+                    <li><strong>무수히 많은 해</strong>: 두 식이 동일 → 일치</li>
+                    <li><strong>해 없음</strong>: 평행 → 기울기 같고 y절편 다름</li>
+                </ul>
+
+                <div class="example">
+                    <strong>비선형 연립 예제</strong><br>
+                    x + y = 5, x² + y² = 17<br>
+                    → y = 5 - x 대입 → x² + (5 - x)² = 17<br>
+                    → x² + 25 - 10x + x² = 17 ⇒ 2x² - 10x + 8 = 0<br>
+                    → x² - 5x + 4 = 0 ⇒ (x-1)(x-4) = 0 → (1,4), (4,1)
+                </div>
+
+                <div class="tip-box">
+                    비선형(2차) 연립은 대입법이 가장 안정적. 해가 없다면 판별식 < 0 확인
+                </div>
+
+                <div class="checklist">
+                    <h4>2단원 핵심 체크리스트</h4>
+                    <ul>
+                        <li>다항식을 (x-a)로 나눈 나머지를 f(a)로 구할 수 있는가?</li>
+                        <li>이항전개에서 특정 차수의 계수를 구할 수 있는가?</li>
+                        <li>무리/유리/로그 방정식의 정의역을 먼저 확인하는가?</li>
+                        <li>제곱 후 무연근을 검증하는 습관이 있는가?</li>
+                        <li>지수/로그 방정식에서 밑 통일 또는 로그 성질 활용 가능한가?</li>
+                        <li>연립방정식에서 해의 개수(0, 1, 무한)를 판별할 수 있는가?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 3단원: 삼각법 -->
+            <section id="trigonometry">
+                <h2>3단원: 삼각법 (Trigonometry)</h2>
+
+                <div class="important-box">
+                    출제 포인트: 도 ↔ 라디안 환산, 삼각함수 정의와 그래프 특성, 핵심 공식 활용, 삼각함수 간 변환 문제, 삼각방정식 일반해 vs 특정 구간 해
+                </div>
+
+                <h3>3.1 각의 단위: 도수법 vs 호도법</h3>
+
+                <h4>🔑 기본 환산</h4>
+                <div class="formula">
+                    $180° = \pi \text{ rad} \quad \Rightarrow \quad 1° = \frac{\pi}{180} \text{ rad}, \quad 1 \text{ rad} = \frac{180°}{\pi}$
+                </div>
+
+                <div class="example">
+                    90° = π/2<br>
+                    2π/3 = 120°
+                </div>
+
+                <div class="tip-box">
+                    도함수·적분·극한 계산에서는 반드시 라디안 사용! 계산기 사용 시 DEG/RAD 모드 확인 필수
+                </div>
+
+                <h3>3.2 삼각함수의 정의 및 그래프</h3>
+
+                <h4>🔹 단위원 정의</h4>
+                <ul>
+                    <li>cos θ = x, sin θ = y → 단위원 위 점 (x, y)</li>
+                    <li>tan θ = sin θ / cos θ = y/x (cos θ ≠ 0)</li>
+                </ul>
+
+                <h4>🔹 주기성</h4>
+                <ul>
+                    <li>sin(θ + 2π) = sin θ, cos(θ + 2π) = cos θ → 주기 2π</li>
+                    <li>tan(θ + π) = tan θ → 주기 π</li>
+                </ul>
+
+                <h4>🔹 그래프 특성</h4>
+                <table>
+                    <tr>
+                        <th>함수</th>
+                        <th>정의역</th>
+                        <th>치역</th>
+                        <th>수직점근선</th>
+                    </tr>
+                    <tr>
+                        <td>sin x, cos x</td>
+                        <td>ℝ</td>
+                        <td>[-1, 1]</td>
+                        <td>없음</td>
+                    </tr>
+                    <tr>
+                        <td>tan x</td>
+                        <td>x ≠ π/2 + kπ</td>
+                        <td>ℝ</td>
+                        <td>x = π/2 + kπ</td>
+                    </tr>
+                </table>
+
+                <h3>3.3 핵심 삼각함수 공식</h3>
+
+                <h4>🔸 기본 항등식</h4>
+                <div class="formula">
+                    $\sin^2 x + \cos^2 x = 1$
+                </div>
+                <p>여기서 파생:</p>
+                <ul>
+                    <li>$1 + \tan^2 x = \sec^2 x$</li>
+                    <li>$1 + \cot^2 x = \csc^2 x$</li>
+                </ul>
+
+                <h4>🔸 덧셈/뺄셈 공식</h4>
+                <div class="formula">
+                    $\sin(A \pm B) = \sin A \cos B \pm \cos A \sin B$<br>
+                    $\cos(A \pm B) = \cos A \cos B \mp \sin A \sin B$<br>
+                    $\tan(A \pm B) = \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}$
+                </div>
+
+                <h4>🔸 2배각 공식</h4>
+                <div class="formula">
+                    $\sin 2x = 2 \sin x \cos x$<br>
+                    $\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x$<br>
+                    $\tan 2x = \frac{2 \tan x}{1 - \tan^2 x}$
+                </div>
+
+                <h4>🔸 반각 공식</h4>
+                <div class="formula">
+                    sin²(x/2) = (1 - cos x) / 2<br>
+                    cos²(x/2) = (1 + cos x) / 2
+                </div>
+
+                <div class="important-box">
+                    공식을 외우기보다 유도 가능하도록 이해할 것
+                </div>
+
+                <h3>3.4 삼각항등식 증명 전략</h3>
+
+                <h4>✅ 삼각항등식 풀이 일반 전략</h4>
+                <ol>
+                    <li>모든 삼각함수를 sin, cos로 통일</li>
+                    <li>공통분모, 인수분해, sin² + cos² = 1 활용</li>
+                    <li>복잡한 쪽 → 간단한 쪽으로 변형</li>
+                </ol>
+
+                <div class="example">
+                    다음과 같은 식을 간단히 하라:<br>
+                    1/(cos x tan x) = 1/(cos x · sin x/cos x) = 1/sin x = csc x
+                </div>
+
+                <h3>3.5 삼각방정식</h3>
+
+                <h4>🔑 일반해 vs 구간해</h4>
+                <div class="example">
+                    sin x = 1/2 → 일반해:<br>
+                    x = π/6 + 2kπ 또는 x = 5π/6 + 2kπ, k ∈ ℤ<br><br>
+                    구간 [0, 2π) 내 해: x = π/6, 5π/6
+                </div>
+
+                <h4>📌 유의사항</h4>
+                <ul>
+                    <li>tan x = a → 해는 x = arctan a + kπ</li>
+                    <li>무리수/분수 각에서는 삼각비 외우기:
+                        <ul>
+                            <li>sin 30° = 1/2</li>
+                            <li>cos 60° = 1/2</li>
+                            <li>tan 45° = 1</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3.6 직각삼각형에서의 삼각법</h3>
+
+                <h4>🔺 기본 정의</h4>
+                <ul>
+                    <li>sin θ = 대변/빗변</li>
+                    <li>cos θ = 인접변/빗변</li>
+                    <li>tan θ = 대변/인접변</li>
+                </ul>
+
+                <div class="checklist">
+                    <h4>3단원 핵심 체크리스트</h4>
+                    <ul>
+                        <li>도 ↔ 라디안 환산 자유자재?</li>
+                        <li>sin, cos, tan의 정의와 그래프 특성 이해?</li>
+                        <li>기본 항등식과 2배각 공식 유도 가능?</li>
+                        <li>삼각함수를 sin, cos로 통일해 식 간소화 가능?</li>
+                        <li>삼각방정식의 일반해와 특정 구간 해 구분 가능?</li>
+                        <li>직각삼각형에서 삼각비 적용 능숙?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4단원: 기하학 -->
+            <section id="geometry">
+                <h2>4단원: 기하학 (Geometry)</h2>
+
+                <div class="important-box">
+                    출제 범위: 점, 좌표, 방정식, 원의 방정식, 직선의 방정식, 평행선과 수직선의 조건
+                </div>
+
+                <h3>4.1 좌표와 기본 개념</h3>
+
+                <h4>🔹 두 점 사이의 거리</h4>
+                <p>점 A(x₁, y₁), B(x₂, y₂) 사이의 거리:</p>
+                <div class="formula">
+                    $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
+                </div>
+
+                <h4>🔹 중점 좌표</h4>
+                <div class="formula">
+                    $M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right)$
+                </div>
+
+                <h4>🔹 기울기 (Slope)</h4>
+                <div class="formula">
+                    $m = \frac{y_2 - y_1}{x_2 - x_1} \quad (x_1 \neq x_2)$
+                </div>
+                <ul>
+                    <li>수직선 → 기울기 정의되지 않음</li>
+                    <li>수평선 → 기울기 0</li>
+                </ul>
+
+                <h3>4.2 직선의 방정식</h3>
+
+                <h4>🔸 기본 형태 정리</h4>
+                <table>
+                    <tr>
+                        <th>형태</th>
+                        <th>식</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td>점-기울기식</td>
+                        <td>y - y₁ = m(x - x₁)</td>
+                        <td>한 점과 기울기 알려졌을 때</td>
+                    </tr>
+                    <tr>
+                        <td>기울기-절편식</td>
+                        <td>y = mx + b</td>
+                        <td>b: y절편</td>
+                    </tr>
+                    <tr>
+                        <td>일반형</td>
+                        <td>Ax + By + C = 0</td>
+                        <td>기울기 = -A/B (B ≠ 0)</td>
+                    </tr>
+                </table>
+
+                <h4>🔸 평행과 수직 조건</h4>
+                <ul>
+                    <li><strong>평행</strong>: 기울기 같음 → m₁ = m₂</li>
+                    <li><strong>수직</strong>: 기울기 곱 = -1 → m₁ · m₂ = -1</li>
+                </ul>
+
+                <div class="example">
+                    직선 y = 2x + 3에 평행 → 기울기 2<br>
+                    수직 → 기울기 -1/2
+                </div>
+
+                <h3>4.3 원의 방정식</h3>
+
+                <h4>🔸 표준형 (가장 중요!)</h4>
+                <div class="formula">
+                    $(x - h)^2 + (y - k)^2 = r^2$
+                </div>
+                <ul>
+                    <li>중심: (h, k)</li>
+                    <li>반지름: r > 0</li>
+                </ul>
+
+                <h4>🔸 일반형 → 표준형으로 변환 (완전제곱!)</h4>
+                <div class="formula">
+                    $x^2 + y^2 + Dx + Ey + F = 0$
+                </div>
+                <p>→ x, y 항별로 완전제곱:</p>
+                <div class="formula">
+                    $x^2 + Dx = \left(x + \frac{D}{2}\right)^2 - \left(\frac{D}{2}\right)^2$<br>
+                    $y^2 + Ey = \left(y + \frac{E}{2}\right)^2 - \left(\frac{E}{2}\right)^2$
+                </div>
+
+                <div class="example">
+                    <strong>모의고사 3번 분석</strong><br>
+                    y² - 2y + x² + 6x - 15 = 0<br><br>
+                    <strong>풀이:</strong><br>
+                    1. x 항 정리: x² + 6x = (x + 3)² - 9<br>
+                    2. y 항 정리: y² - 2y = (y - 1)² - 1<br>
+                    3. 대입:<br>
+                    (x + 3)² - 9 + (y - 1)² - 1 - 15 = 0<br>
+                    ⇒ (x + 3)² + (y - 1)² = 25<br>
+                    4. → 중심 M = (-3, 1), 반지름 R = √25 = 5<br>
+                    5. 문제: 2a + b + R² = 2(-3) + 1 + 25 = -6 + 1 + 25 = 20<br><br>
+                    ✅ 정답: (C) 20
+                </div>
+
+                <div class="tip-box">
+                    일반형 → 반드시 완전제곱! 실수하지 않도록 상수항 이동 후 제곱 보정 단계 명확히!
+                </div>
+
+                <h3>4.4 기하학 종합 문제 유형</h3>
+
+                <h4>유형 1: 원과 직선의 관계</h4>
+                <ul>
+                    <li>접선일 조건: 중심에서 직선까지 거리 = 반지름</li>
+                    <li>거리 공식: 점 (x₀, y₀)에서 직선 Ax + By + C = 0까지 거리</li>
+                </ul>
+                <div class="formula">
+                    $d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}$
+                </div>
+
+                <h4>유형 2: 두 원의 관계</h4>
+                <p>중심 간 거리 d, 반지름 r₁, r₂</p>
+                <ul>
+                    <li>d > r₁ + r₂: 떨어짐</li>
+                    <li>d = r₁ + r₂: 외접</li>
+                    <li>|r₁ - r₂| < d < r₁ + r₂: 두 점에서 만남</li>
+                    <li>d = |r₁ - r₂|: 내접</li>
+                    <li>d < |r₁ - r₂|: 포함</li>
+                </ul>
+
+                <div class="checklist">
+                    <h4>4단원 핵심 체크리스트</h4>
+                    <ul>
+                        <li>직선의 기울기, 방정식 형태 자유자재?</li>
+                        <li>두 직선이 평행/수직인지 판단 가능?</li>
+                        <li>원의 일반형을 완전제곱으로 표준형 변환 가능?</li>
+                        <li>중심, 반지름, 2a + b + R² 같은 식 계산 정확?</li>
+                        <li>중점, 거리, 기울기 공식 암기?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 시험 전략 섹션 -->
+            <section id="strategy">
+                <h2>시험 대비 전략</h2>
+
+                <h3>✅ 전반적 학습 전략</h3>
+
+                <div class="highlight-box">
+                    <h4>1. 모의고사 분석</h4>
+                    <p>제공된 모의고사 10문제를 완벽히 이해 → 출제 경향 파악</p>
+                    <p>특히 중요: 도함수 계산, 적분 치환, 원의 방정식, 삼각항등식, 일대일 함수</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>2. 공식 암기보다 이해</h4>
+                    <p>공식 유도 과정을 알고 있으면 응용 문제에 유리</p>
+                    <p>예: 2배각 공식은 덧셈정리에서 A=B로 놓으면 유도 가능</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>3. 함수 + 미적분 통합 문제 주의</h4>
+                    <p>예: f(x) = x - √(x² + 5x)의 성질 → 정의역, 부호, 극한 → 선택지 판단</p>
+                    <p>이런 문제는 여러 개념을 동시에 사용해야 함</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>4. 특수 함수 주의</h4>
+                    <p>절댓값, 부호함수(sgn), 합성함수 등 → 구간 나누기 연습</p>
+                    <p>경계점에서의 함수값과 연속성 확인 필수</p>
+                </div>
+
+                <h3>🎯 영역별 학습 우선순위</h3>
+
+                <table>
+                    <tr>
+                        <th>영역</th>
+                        <th>중요도</th>
+                        <th>핵심 주제</th>
+                    </tr>
+                    <tr>
+                        <td>미적분학</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>도함수 계산, 치환적분, 접선 방정식</td>
+                    </tr>
+                    <tr>
+                        <td>대수학</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>방정식 풀이, 이항정리, 정의역 체크</td>
+                    </tr>
+                    <tr>
+                        <td>삼각법</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>삼각항등식, 2배각 공식</td>
+                    </tr>
+                    <tr>
+                        <td>기하학</td>
+                        <td>⭐⭐⭐</td>
+                        <td>원의 방정식 (완전제곱), 직선의 기울기</td>
+                    </tr>
+                </table>
+
+                <h3>⏰ 시험 시간 관리</h3>
+
+                <ul>
+                    <li><strong>1차 독해 (5분)</strong>: 전체 문제 훑어보기, 쉬운 문제 체크</li>
+                    <li><strong>쉬운 문제 먼저 (20-25분)</strong>: 확실히 아는 문제부터 풀기</li>
+                    <li><strong>중간 난이도 (20-25분)</strong>: 시간이 조금 걸리는 문제</li>
+                    <li><strong>어려운 문제 (10-15분)</strong>: 남은 시간에 도전</li>
+                    <li><strong>검토 (5분)</strong>: 계산 실수 확인</li>
+                </ul>
+
+                <h3>💡 문제 풀이 팁</h3>
+
+                <div class="tip-box">
+                    <strong>정의역 체크 습관화</strong><br>
+                    유리함수, 무리함수, 로그함수는 항상 정의역부터 확인!
+                </div>
+
+                <div class="tip-box">
+                    <strong>계산 실수 방지</strong><br>
+                    - 부호 실수: (-)×(-) = (+) 확인<br>
+                    - 분수 계산: 통분 후 약분 정확히<br>
+                    - 제곱 전개: (a+b)² = a² + 2ab + b²
+                </div>
+
+                <div class="tip-box">
+                    <strong>선택지 활용</strong><br>
+                    정확한 답이 기억나지 않으면 선택지를 대입해서 검증
+                </div>
+
+                <h3>📚 최종 점검 사항</h3>
+
+                <div class="checklist">
+                    <h4>시험 전날 체크리스트</h4>
+                    <ul>
+                        <li>모의고사 10문제 모두 풀어봤는가?</li>
+                        <li>각 영역의 핵심 공식을 암기했는가?</li>
+                        <li>계산기 사용법을 숙지했는가? (RAD/DEG 모드)</li>
+                        <li>시험 시간과 장소를 확인했는가?</li>
+                        <li>충분한 수면을 취할 계획인가?</li>
+                    </ul>
+                </div>
+
+                <div class="important-box">
+                    <strong>시험 당일 마인드셋</strong><br>
+                    - 모르는 문제에 너무 오래 매달리지 말 것<br>
+                    - 아는 문제를 확실히 맞추는 것이 더 중요<br>
+                    - 끝까지 포기하지 말고 최선을 다할 것
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>성공적인 합격을 기원합니다! 🎯</strong></p>
+            <p>Ghent University Global Campus - Mathematics Aptitude Test</p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                © 2025 GUGC 입학시험 준비 강의록 | 모든 내용은 교육 목적으로 제작되었습니다.
+            </p>
+
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <a href="chem.html" style="display: inline-block; background: #28a745; color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                    🧪 화학 강의록 바로가기 →
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 부드러운 스크롤 효과
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // 현재 섹션 하이라이트
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.background = '';
+                link.style.color = 'white';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#d4af37';
+                    link.style.color = '#1e3c72';
+                }
+            });
+        });
+
+        // 인쇄 최적화
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.pageBreakInside = 'avoid';
+            });
+        });
+    </script>
+</body>
+</html>
